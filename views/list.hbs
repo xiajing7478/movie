@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-12">
+        <h3>{{title}}</h3>
+    </div>
+    <div class="col-md-12">
+        <table class="table table-condensed table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>编号</th>
+                <th>国家</th>
+                <th>语言</th>
+                <th>年份</th>
+                <th>价格</th>
+                <th>导演</th>
+                <th>创建时间</th>
+                <th>更新时间</th>
+                <th>修改</th>
+                <th>删除</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each movies}}
+                <tr>
+                    <td><a href="./detail/:{{id}}"></a>{{id}}</td>
+                    <td>{{country}}</td>
+                    <td>{{language}}</td>
+                    <td>{{year}}</td>
+                    <td>{{price}}</td>
+                    <td>{{doctor}}</td>
+                    <td>{{createTime}}</td>
+                    <td>{{updateTime}}</td>
+                    <td><a href="./admin">更改</a></td>
+                    <td><input data-id="{{id}}" type="button" class="btn btn-primary" value="删除"></td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-2">
+        <a href="./admins" class="btn btn-block btn-danger">Add</a>
+    </div>
+</div>

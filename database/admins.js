@@ -17,6 +17,30 @@ function add(obj,callback){
     })
 };
 
+
+function findAll(callback){
+    var sql = 'select * from movies';
+    dbConn.conn().query(sql, function (err, results) {
+        if(err){
+            console.log('findAll is err at ' + err);
+        }
+        callback(results);
+    })
+};
+
+
+function findById(id,callback){
+    var sql = 'select * from movies where id = ?';
+    dbConn.conn().query(sql,[id], function (err,results) {
+        if(err){
+            console.log('findById is err at '+ err);
+        }
+        callback(results);
+    })
+}
+
 module.exports ={
-    add:add
+    add:add,
+    findAll:findAll,
+    findById:findById
 } ;
