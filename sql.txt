@@ -1,0 +1,16 @@
+/*DDL 信息 - movie*/--------------------
+CREATE DATABASE `movie` /*!40100 DEFAULT CHARACTER SET utf8 */
+
+CREATE TABLE `movies` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '电影序号',
+  `title` varchar(200) NOT NULL COMMENT '电影标题',
+  `country` varchar(20) NOT NULL COMMENT '电影国家',
+  `language` varchar(20) NOT NULL COMMENT '电影语言',
+  `year` int(6) NOT NULL COMMENT '电影年份',
+  `flash` varchar(200) NOT NULL COMMENT '电影动画',
+  `poster` varchar(200) NOT NULL COMMENT '电影封面',
+  `createTime` varchar(10) DEFAULT NULL COMMENT '电影创建时间',
+  `updateTime` varchar(10) DEFAULT NULL COMMENT '电影更新时间',
+  `price` datetime DEFAULT NULL COMMENT '电影票价',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
