@@ -13,7 +13,18 @@ router.get('/', function(req, res, next) {
   })
 });
 
+
+router.get("/register", function (req,res) {
+  res.render("reg",{title:'注册'});
+}).post('/register', function (req, res) {
+  dal.register(req.body,function(result){
+
+  })
+})
+
+
 //bcrypt.genSalt
+//sha1加密，不可逆的
 
 
 module.exports = router;
