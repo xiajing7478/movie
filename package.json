@@ -15,5 +15,12 @@
     "morgan": "~1.7.0",
     "mysql": "^2.13.0",
     "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-concurrent": "^2.3.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-nodemon": "^0.4.2",
+    "sha1": "^1.1.1"
   }
 }
