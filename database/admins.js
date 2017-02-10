@@ -37,10 +37,36 @@ function findById(id,callback){
         }
         callback(results);
     })
-}
+};
+
+
+function updateMovie(obj,callback){
+    obj.updateTime = moment(Date.now()).format('YYYY-MM-DD kk:mm:ss');
+    var sql = 'update movies set title =?,country=?,language=?,year=?,flash=?,' +
+        'poster=?,createTime=?,updateTime=?,price=?,doctor=?,summary=? where id=?';
+    dbConn.conn().query(sql,[obj.title,obj.country,obj.language,obj.year,obj.flash,obj.poster,obj.createTime,obj.updateTime, obj.price,obj.doctor,obj.summary,obj.id],
+        function (err,results) {
+            if(err){
+                console.log("update is err at " + err);
+            }
+            callback(results);
+        })
+};
+
+
+function deleteById(id,callback){
+    var sql = 'delete from movies where id = ?';
+    dbConn.conn().query(sql,[id], function (err, result) {
+        if(err)
+            console.log("delete err at " + err);
+        callback(result);
+    })
+};
 
 module.exports ={
     add:add,
     findAll:findAll,
-    findById:findById
+    findById:findById,
+    updateMovie:updateMovie,
+    deleteById:deleteById
 } ;

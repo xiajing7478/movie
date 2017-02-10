@@ -2,59 +2,60 @@
     <h3>{{title}}</h3>
     <div class="col-md-12 column">
         <form class="form-horizontal" role="form" method="post" action="/admins">
-            <input type="hidden" id="movieId" value="" >
+            <input type="hidden" id="id" name="id" value="{{movie.id}}" >
+            <input type="hidden" id="createTime" name="createTime" value="{{movie.createTime}}" >
             <div class="form-group">
                 <label for="title" class="col-sm-2 control-label">电影名称</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="title" name="title" />
+                    <input type="text" value="{{movie.title}}" class="form-control" id="title" name="title" />
                 </div>
             </div>
             <div class="form-group">
                 <label for="country" class="col-sm-2 control-label">电影国家</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="country" name="country" />
+                    <input type="text" value="{{movie.country}}" class="form-control" id="country" name="country" />
                 </div>
             </div>
             <div class="form-group">
                 <label for="language" class="col-sm-2 control-label">电影语言</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="language" name="language" />
+                    <input type="text" value="{{movie.language}}" class="form-control" id="language" name="language" />
                 </div>
             </div>
             <div class="form-group">
                 <label for="year" class="col-sm-2 control-label">电影年份</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="year" name="year" />
+                    <input type="text" value="{{movie.year}}" class="form-control" id="year" name="year" />
                 </div>
             </div>
             <div class="form-group">
                 <label for="flash" class="col-sm-2 control-label">电影地址</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="flash" name="flash" />
+                    <input type="text" value="{{movie.flash}}" class="form-control" id="flash" name="flash" />
                 </div>
             </div>
             <div class="form-group">
                 <label for="poster" class="col-sm-2 control-label">电影封面</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="poster" name="poster" />
+                    <input type="text" value="{{movie.poster}}" class="form-control" id="poster" name="poster" />
                 </div>
             </div>
             <div class="form-group">
                 <label for="price" class="col-sm-2 control-label">电影票价</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="price" name="price" />
+                    <input type="text" value="{{movie.price}}" class="form-control" id="price" name="price" />
                 </div>
             </div>
             <div class="form-group">
                 <label for="doctor" class="col-sm-2 control-label">电影导演</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="doctor" name="doctor" />
+                    <input type="text" value="{{movie.doctor}}" class="form-control" id="doctor" name="doctor" />
                 </div>
             </div>
             <div class="form-group">
                 <label for="summary" class="col-sm-2 control-label">电影简介</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="summary" name="summary" />
+                    <input type="text" value="{{movie.summary}}" class="form-control" id="summary" name="summary" />
                 </div>
             </div>
             <div class="form-group">

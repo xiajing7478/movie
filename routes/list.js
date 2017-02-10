@@ -11,4 +11,18 @@ router.get('/', function (req, res) {
     });
 });
 
+
+router.post('/delete', function (req, res) {
+    var id = req.body.id;
+    dal.deleteById(id,function(result){
+        if(result.affectedRows>0){
+            res.json({code: 200, result: true});
+        }else{
+            res.writelen("删除失败...");
+        }
+    })
+})
+
+
+
 module.exports = router;
