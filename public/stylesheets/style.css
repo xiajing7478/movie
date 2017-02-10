@@ -6,3 +6,12 @@ body {
 a {
   color: #00B7FF;
 }
+
+dd+dd{
+  padding-top: 15px;
+}
+
+
+table th,td{
+  text-align: center;
+}

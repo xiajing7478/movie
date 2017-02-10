@@ -4,20 +4,20 @@
 </div>
 <div class="col-md-12">
     <div class="col-md-7">
-        <embed src="{{flash}}" width="100%" height="380px"></embed>
+        <embed src="{{movie.flash}}" width="100%" height="380px"></embed>
     </div>
     <div class="col-md-5">
         <dl>
-            <dt>{{title}}</dt>
-            <dd>{{country}}</dd>
-            <dt></dt>
-            <dd></dd>
-            <dt></dt>
-            <dd></dd>
-            <dt></dt>
-            <dd></dd>
-            <dt></dt>
-            <dd></dd>
+            <dd>影片名称:{{movie.title}}</dd>
+            <dd>影片国家:{{movie.country}}</dd>
+            <dd>影片语言:{{movie.language}}</dd>
+            <dd>影片年份:{{movie.year}}</dd>
+            <dd>影片封面:<img src="{{movie.poster}}" alt="pic"></dd>
+            <dd>影片创建时间:{{movie.createTime}}</dd>
+            <dd>影片更新时间:{{movie.updateTime}}</dd>
+            <dd>影片价格:{{movie.price}}</dd>
+            <dd>影片导演:{{movie.doctor}}</dd>
+            <dd>影片描述:{{movie.summary}}</dd>
         </dl>
     </div>
 </div>

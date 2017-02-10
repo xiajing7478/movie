@@ -21,7 +21,7 @@
             <tbody>
             {{#each movies}}
                 <tr>
-                    <td><a href="./detail/:{{id}}"></a>{{id}}</td>
+                    <td><a href="./detail/{{id}}">{{id}}</a></td>
                     <td>{{country}}</td>
                     <td>{{language}}</td>
                     <td>{{year}}</td>
@@ -29,8 +29,8 @@
                     <td>{{doctor}}</td>
                     <td>{{createTime}}</td>
                     <td>{{updateTime}}</td>
-                    <td><a href="./admin">更改</a></td>
-                    <td><input data-id="{{id}}" type="button" class="btn btn-primary" value="删除"></td>
+                    <td><a href="./admin">修改</a></td>
+                    <td><a data-id="{{id}}" href="javascript:void(0);">删除</a></td>
                 </tr>
             {{/each}}
             </tbody>

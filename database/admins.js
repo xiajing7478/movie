@@ -30,7 +30,7 @@ function findAll(callback){
 
 
 function findById(id,callback){
-    var sql = 'select * from movies where id = ?';
+    var sql = 'select * from movies where id =?';
     dbConn.conn().query(sql,[id], function (err,results) {
         if(err){
             console.log('findById is err at '+ err);
