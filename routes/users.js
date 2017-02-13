@@ -8,8 +8,9 @@ router.get('/', function(req, res, next) {
   //res.send('respond with a resource');
 }).post('/', function (req, res) {
      dal.login(req.body, function (result) {
-       console.log(JSON.stringify(result.length));
+       //console.log(JSON.stringify(result.length));
        if(result.length == 1){
+         req.session.username = req.body.username;
          res.redirect("../");
        }else{
          res.send("用户名或密码错误...");
@@ -37,7 +38,7 @@ router.get("/register", function (req,res) {
 });
 
 
-/* GET uodate listing. */
+/* GET update listing. */
 router.get('/update', function (req, res) {
   res.render('./updatePwd',{title:'修改密码'});
 }).post('/update', function (req, res) {
@@ -54,5 +55,18 @@ router.get('/update', function (req, res) {
     }
   })
 });
+
+/* GET logout listing. */
+router.get('/logout', function (req, res) {
+  delete req.session.username;
+  delete res.locals.username
+  res.redirect("/");
+});
+
+//router.get('/logOutTest', function (req, res) {
+//  console.log("hahahahaha");
+//  delete req.session.username;
+//  res.redirect("/");
+//});
 
 module.exports = router;
