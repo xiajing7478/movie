@@ -26,6 +26,4 @@ router.get("/register", function (req,res) {
 //bcrypt.genSalt
 
 //sha1加密，不可逆的
-
-
 module.exports = router;
