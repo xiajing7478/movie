@@ -6,10 +6,20 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
     <script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
-    <!--<script type="text/javascript" src="/javascripts/moment.js"></script>-->
   </head>
   <body>
     <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    {{#if username}}
+                        <span>欢迎您,{{username}} &nbsp;&nbsp;|&nbsp;&nbsp;<a href="/users/logout">登出</a></span>
+                    {{else}}
+                        <a href="/users">登录</a> &nbsp;&nbsp;|&nbsp;&nbsp;<a href="/users/register">注册</a>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
         {{{body}}}
     </div>
   </body>

@@ -63,10 +63,4 @@ router.get('/logout', function (req, res) {
   res.redirect("/");
 });
 
-//router.get('/logOutTest', function (req, res) {
-//  console.log("hahahahaha");
-//  delete req.session.username;
-//  res.redirect("/");
-//});
-
 module.exports = router;
