@@ -4,7 +4,7 @@ var dal = require('../database/admins');
 /* GET home page. */
 router.get('/', function(req, res) {
   dal.findAll(function (results) {
-    console.log(JSON.stringify(results));
+    //console.log(JSON.stringify(results));
     res.render('index', { title: '首页',movies:results});
   })
 });
