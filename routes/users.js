@@ -8,9 +8,11 @@ router.get('/', function(req, res, next) {
   //res.send('respond with a resource');
 }).post('/', function (req, res) {
      dal.login(req.body, function (result) {
-       //console.log(JSON.stringify(result.length));
+       //console.log(JSON.stringify(result));
        if(result.length == 1){
-         req.session.username = req.body.username;
+         //console.log(JSON.stringify(req.body));
+         req.session.user = result[0];
+         //console.log(JSON.stringify(req.session.user));
          res.redirect("../");
        }else{
          res.send("用户名或密码错误...");
@@ -58,8 +60,8 @@ router.get('/update', function (req, res) {
 
 /* GET logout listing. */
 router.get('/logout', function (req, res) {
-  delete req.session.username;
-  delete res.locals.username
+  delete req.session.user;
+  delete res.locals.username;
   res.redirect("/");
 });
 

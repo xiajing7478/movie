@@ -4,8 +4,8 @@
 var express = require('express');
 var router = express.Router();
 var dal = require('../database/admins');
+var mid = require('../database/middle');
 router.get('/', function (req, res) {
-
     var id= req.query.id;
     if(typeof id == "undefined"){
         res.render('admin',{title:'增加影片'});
