@@ -14,6 +14,7 @@
                 <th>导演</th>
                 <th>创建时间</th>
                 <th>更新时间</th>
+                <th>电影分类</th>
                 <th>修改</th>
                 <th>删除</th>
             </tr>
@@ -29,6 +30,7 @@
                     <td>{{doctor}}</td>
                     <td>{{createTime}}</td>
                     <td>{{updateTime}}</td>
+                    <td data-id="{{categoryId}}">{{name}}</td>
                     <td><a href="./admins?id={{id}}">修改</a></td>
                     <td><a class="delete" data-id="{{id}}" href="javascript:void(0);">删除</a></td>
                 </tr>

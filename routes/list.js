@@ -10,6 +10,7 @@ router.get('/', function (req, res) {
     if(isLogin(req,res)){
         if(mid.isGrunt(req,res)) {
             dal.findAll(function (results) {
+                //console.log("results:" + JSON.stringify(results));
                 res.render('list', {title: '列表页面', movies: results});
             });
         }

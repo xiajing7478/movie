@@ -5,16 +5,20 @@ var express = require('express');
 var router = express.Router();
 var dal = require('../database/admins');
 var mid = require('../database/middle');
+var category = require('../database/category');
 router.get('/', function (req, res) {
-    var id= req.query.id;
-    if(typeof id == "undefined"){
-        res.render('admin',{title:'增加影片'});
-    }else{
-        dal.findById(id, function (results) {
-            res.render('admin',{title:'修改影片',movie:results[0]});
-        })
-    }
+    category.select(function (categorys) {
+        var id= req.query.id;
+        if(typeof id == "undefined"){
+            res.render('admin',{title:'增加影片',categorys:categorys});
+        }else{
+            dal.findById(id, function (results) {
+                res.render('admin',{title:'修改影片',movie:results[0],categorys:categorys});
+            })
+        }
+    })
 }).post('/', function (req, res) {
+    console.log("id: "+JSON.stringify(req.body));
     console.log("id: "+req.body.id);
     var id = req.body.id;
     if(id>0){
