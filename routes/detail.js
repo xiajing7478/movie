@@ -11,7 +11,7 @@ router.get('/:id', function (req, res) {
     var id = req.params.id;
     //console.log("id: " + id);
     if(!id) return;
-    if(mid.isLogin(req,res)){
+    //if(mid.isLogin(req,res)){
         dal.findById(id, function (results) {
             //console.log("result: "+ JSON.stringify(results[0]));
             if(results){
@@ -21,7 +21,7 @@ router.get('/:id', function (req, res) {
                 });
             }
         })
-    }
+    //}
 });
 
 module.exports = router;
