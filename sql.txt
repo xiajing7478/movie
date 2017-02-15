@@ -53,3 +53,12 @@ CREATE TABLE `users` (
   `role` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '0:normal,1:verified user,2:prefessonal user',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8
+
+
+
+/*
+ * sql内容
+ */
+ insert into `movies` (`id`, `title`, `country`, `language`, `year`, `flash`, `poster`, `createTime`, `updateTime`, `price`, `doctor`, `summary`, `categoryId`) values('2','机械战警2','美国','英文','2016','http://player.youku.com/player.php/sid/XNjA1Njc0NTUy/v.swf','/images/m.jpg','2017-02-10 10:12:01','2017-02-10 10:12:01','48','毕亚阁',' 毕亚阁 美国 机械战警','1');
+ insert into `movies` (`id`, `title`, `country`, `language`, `year`, `flash`, `poster`, `createTime`, `updateTime`, `price`, `doctor`, `summary`, `categoryId`) values('3','机械战警','美国','英文','2014','http://player.youku.com/player.php/sid/XNjA1Njc0NTUy/v.swf','/images/wzx.jpg','2017-02-15 16:06:30','2017-02-15 16:06:30','50','毕亚阁','毕亚阁 动作大片','1');
+ insert into `movies` (`id`, `title`, `country`, `language`, `year`, `flash`, `poster`, `createTime`, `updateTime`, `price`, `doctor`, `summary`, `categoryId`) values('4','机械战警3','美国','英文','2018','http://player.youku.com/player.php/sid/XNjA1Njc0NTUy/v.swf','/images/m.jpg','2017-02-15 16:13:16','2017-02-15 16:13:16','55','毕亚阁',' 毕亚阁 美国 机械战警3','2');

@@ -18,9 +18,8 @@ router.use(function (req, res, next) {
 
 /* GET home page. */
 router.get('/', function(req, res) {
-
-
   category.select(function(categorys){
+    //http://www.imooc.com/learn/197
     //var arr=[],obj={};
     //for(var i=0; i<categorys.length; i++){
     //  obj.name = categorys[i].id;
@@ -37,8 +36,6 @@ router.get('/', function(req, res) {
     //})
     res.render('index', { title: '首页',categorys:categorys});
   })
-
-
 
   //dal.findAll(function (results) {
   //  //console.log(JSON.stringify(results));
