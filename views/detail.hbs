@@ -18,7 +18,7 @@
         </div>
         <div>
             <p>评论</p>
-            <form class="form-horizontal" role="form" method="post" action="/comment/add">
+            <form id="comment_form" class="form-horizontal" role="form" method="post" action="/comment/add">
                 <input type="hidden" name="m_id" value="{{movie.id}}">
                 <input type="hidden" name="m_from" value="{{movie.id}}">
                 <input type="hidden" name="username" value="{{username}}">
@@ -54,3 +54,4 @@
         </dl>
     </div>
 </div>
+<script src="/javascripts/detail.js"></script>
