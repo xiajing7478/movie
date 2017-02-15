@@ -11,6 +11,7 @@ var users = require('./routes/users');
 var admins = require('./routes/admins');
 var list = require('./routes/list');
 var detail = require('./routes/detail');
+var comment = require('./routes/comment');
 
 var app = express();
 
@@ -47,6 +48,7 @@ app.use('/users', users);
 app.use('/admins',admins);
 app.use('/list',list);
 app.use('/detail',detail);
+app.use('/comment',comment);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

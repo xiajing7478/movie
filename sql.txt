@@ -17,10 +17,12 @@ CREATE TABLE `movies` (
 
 
 
-CREATE TABLE `users` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '用户id',
-  `username` varchar(20) NOT NULL COMMENT '用户名',
-  `password` varchar(50) DEFAULT NULL COMMENT '用户密码',
-  `role` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '0:normal,1:verified user,2:prefessonal user',
+CREATE TABLE `comment` (
+  `id` int(50) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `m_id` int(50) NOT NULL COMMENT '电影的id',
+  `m_from` int(50) DEFAULT NULL COMMENT '评论来自于谁',
+  `m_to` int(50) DEFAULT NULL COMMENT '评论谁',
+  `content` varchar(200) NOT NULL COMMENT '内容',
+  `username` varchar(50) NOT NULL COMMENT '评论者',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8
