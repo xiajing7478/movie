@@ -9,12 +9,14 @@ CREATE TABLE `movies` (
   `year` int(6) NOT NULL COMMENT '电影年份',
   `flash` varchar(200) NOT NULL COMMENT '电影动画',
   `poster` varchar(200) NOT NULL COMMENT '电影封面',
-  `createTime` varchar(10) DEFAULT NULL COMMENT '电影创建时间',
-  `updateTime` varchar(10) DEFAULT NULL COMMENT '电影更新时间',
-  `price` datetime DEFAULT NULL COMMENT '电影票价',
+  `createTime` varchar(20) DEFAULT NULL COMMENT '电影创建时间',
+  `updateTime` varchar(20) DEFAULT NULL COMMENT '电影更新时间',
+  `price` double DEFAULT NULL COMMENT '电影票价',
+  `doctor` varchar(20) NOT NULL COMMENT '电影导演',
+  `summary` varchar(1000) DEFAULT '""' COMMENT '电影简介',
+  `categoryId` int(10) NOT NULL DEFAULT '1' COMMENT '电影分类id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
-
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8
 
 
 CREATE TABLE `comment` (
@@ -24,5 +26,30 @@ CREATE TABLE `comment` (
   `m_to` int(50) DEFAULT NULL COMMENT '评论谁',
   `content` varchar(200) NOT NULL COMMENT '内容',
   `username` varchar(50) NOT NULL COMMENT '评论者',
+  `reply` varchar(200) DEFAULT 'null' COMMENT '回复内容',
+  `commentTime` varchar(20) DEFAULT 'null' COMMENT '评论时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8
+
+
+CREATE TABLE `categorys` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `name` varchar(20) NOT NULL COMMENT '电影分类name',
+  `createTime` varchar(20) DEFAULT 'null',
+  `updateTime` varchar(20) DEFAULT 'null',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8
+
+CREATE TABLE `replys` (
+  `id` int(100) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `move_id` int(100) NOT NULL COMMENT '电影id',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '用户id',
+  `username` varchar(20) NOT NULL COMMENT '用户名',
+  `password` varchar(50) DEFAULT NULL COMMENT '用户密码',
+  `role` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '0:normal,1:verified user,2:prefessonal user',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8
