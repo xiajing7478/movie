@@ -26,7 +26,7 @@ router.post('/delete', function (req, res) {
                 if (result.affectedRows > 0) {
                     res.json({code: 200, result: true});
                 } else {
-                    res.writelen("删除失败...");
+                    res.send("删除失败...");
                 }
             })
         }

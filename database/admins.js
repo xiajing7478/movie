@@ -53,8 +53,8 @@ function findById(id,callback){
 function updateMovie(obj,callback){
     obj.updateTime = moment(Date.now()).format('YYYY-MM-DD kk:mm:ss');
     var sql = 'update movies set title =?,country=?,language=?,year=?,flash=?,' +
-        'poster=?,createTime=?,updateTime=?,price=?,doctor=?,summary=? where id=?';
-    dbConn.conn().query(sql,[obj.title,obj.country,obj.language,obj.year,obj.flash,obj.poster,obj.createTime,obj.updateTime, obj.price,obj.doctor,obj.summary,obj.id],
+        'poster=?,createTime=?,updateTime=?,price=?,doctor=?,summary=?,categoryId=? where id=?';
+    dbConn.conn().query(sql,[obj.title,obj.country,obj.language,obj.year,obj.flash,obj.poster,obj.createTime,obj.updateTime, obj.price,obj.doctor,obj.summary,obj.categoryId,obj.id],
         function (err,results) {
             if(err){
                 console.log("update is err at " + err);

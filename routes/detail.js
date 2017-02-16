@@ -16,7 +16,7 @@ router.get('/:id', function (req, res) {
             //console.log("result: "+ JSON.stringify(results[0]));
             if(results){
                 comment.findByMovieId(id, function (comments) {
-                    console.log("comments: "+ JSON.stringify(comments));
+                    //console.log("comments: "+ JSON.stringify(comments));
                     res.render('detail',{'title':'影片详情页',movie:results[0],comments:comments});
                 });
             }

@@ -6,6 +6,17 @@ var router = express.Router();
 var dal = require('../database/admins');
 var mid = require('../database/middle');
 var category = require('../database/category');
+
+
+var hbs = require('hbs');
+
+hbs.registerHelper('compare', function () {
+    console.log('arguments.length: '+arguments.length);
+    for(var i=0; i<arguments.length; i++){
+        console.log('arguments: '+JSON.stringify(arguments[i]));
+    }
+})
+
 router.get('/', function (req, res) {
     category.select(function (categorys) {
         var id= req.query.id;

@@ -5,6 +5,7 @@
 
 
 exports.isLogin = function isLogin(req,res){
+    console.log(req.session.user);
     if((req.session.user)){
         var username = req.session.user.username;
         return true;

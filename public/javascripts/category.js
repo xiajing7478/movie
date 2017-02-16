@@ -1,21 +1,18 @@
 /**
- * Created by Administrator on 2017/2/9.
+ * Created by Administrator on 2017/2/16.
  */
 
 $(function () {
-    /**
-     * delete
-     */
     $('.delete').on("click", function () {
         var $this =  $(this).parent().parent();
         var _id =  $(this).attr("data-id");
         deleteById(_id,$this);
     });
-    
+
     function deleteById(id,obj){
         $.ajax({
             type:'POST',
-            url:'/list/delete',
+            url:'./delete',
             dataType:'json',
             data:{id:id},
             success: function (data) {
@@ -26,20 +23,5 @@ $(function () {
                 console.log("error "+ data);
             }
         })
-    };
-
-
-    /**
-     * find
-     */
-    var categoryId = $('#category_id').val();
-    if(categoryId != ""){
-        $("#categoryId option").each(function (index,value) {
-            if($(this).val() == categoryId){
-                $(this).attr("selected",true);
-                return;
-            }
-        })
     }
-
 })
