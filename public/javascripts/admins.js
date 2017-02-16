@@ -59,13 +59,16 @@ $(function () {
                 success: function (data) {
                     $('#title').val(data.title);
                     $('#country').val(data.countries[0]);
-                    $('#language').val();
+                    $('#language').val('英国');
                     $('#year').val(data.year);
                     $('#flash').val();
                     $('#poster').val(data.images.large);
-                    $('#price').val();
+                    $('#price').val(40);
                     $('#doctor').val(data.directors[0].name);
                     $('#summary').val(data.summary);
+                },
+                error: function (data) {
+                    console.log(JSON.stringify(data));
                 }
             })
         }
