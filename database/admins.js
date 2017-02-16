@@ -64,6 +64,18 @@ function updateMovie(obj,callback){
 };
 
 
+function increaseByPV(id,cb){
+    var sql = "update movies set pv = pv+1 where id = ?";
+    dbConn.conn().query(sql,[id], function (err,result) {
+        if(err){
+            console.log("increaseByPV has err at " + err);
+        }
+
+        cb(result);
+    })
+}
+
+
 function deleteById(id,callback){
     var sql = 'delete from movies where id = ?';
     dbConn.conn().query(sql,[id], function (err, result) {
@@ -73,11 +85,14 @@ function deleteById(id,callback){
     })
 };
 
+
+
 module.exports ={
     add:add,
     findAll:findAll,
     findById:findById,
     updateMovie:updateMovie,
     deleteById:deleteById,
-    findByCategoryId:findByCategoryId
+    findByCategoryId:findByCategoryId,
+    increaseByPV:increaseByPV
 } ;

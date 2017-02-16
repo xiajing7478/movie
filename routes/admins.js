@@ -11,9 +11,9 @@ var category = require('../database/category');
 var hbs = require('hbs');
 
 hbs.registerHelper('compare', function () {
-    console.log('arguments.length: '+arguments.length);
+    //console.log('arguments.length: '+arguments.length);
     for(var i=0; i<arguments.length; i++){
-        console.log('arguments: '+JSON.stringify(arguments[i]));
+        //console.log('arguments: '+JSON.stringify(arguments[i]));
     }
 })
 
@@ -29,8 +29,6 @@ router.get('/', function (req, res) {
         }
     })
 }).post('/', function (req, res) {
-    console.log("id: "+JSON.stringify(req.body));
-    console.log("id: "+req.body.id);
     var id = req.body.id;
     if(id>0){
         dal.updateMovie(req.body, function (results) {

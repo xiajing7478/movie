@@ -71,6 +71,7 @@ if (app.get('env') === 'development') {
 
 
   app.use(function(err, req, res, next) {
+    console.log('err.status:' + err.status);
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,

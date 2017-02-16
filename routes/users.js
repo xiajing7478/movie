@@ -47,7 +47,7 @@ router.get('/update', function (req, res) {
   dal.login(req.body, function (result) {
     if(result.length == 1){
       dal.update(req.body, function (result) {
-        console.log(JSON.stringify(result));
+        //console.log(JSON.stringify(result));
         if(result.affectedRows == 1){
           res.send("修改成功...");
         }

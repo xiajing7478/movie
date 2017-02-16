@@ -40,11 +40,10 @@ router.get("/categoryList", function (req, res) {
 });
 
 router.post('/delete', function (req, res) {
-    console.log(req.body.id);
     if(mid.isLogin(req,res)){
         if(mid.isGrunt(req,res)) {
             var id = req.body.id;
-            console.log(req.body.id);
+            //console.log(req.body.id);
             dal.deleteCategoryById(id, function (result) {
                 if (result.affectedRows > 0) {
                     res.json({code: 200, result: true});

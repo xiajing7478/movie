@@ -7,7 +7,7 @@ var dal = require('../database/comment');
 
 
 router.post('/add', function (req, res) {
-console.log("content:" + JSON.stringify(req.body));
+//console.log("content:" + JSON.stringify(req.body));
     dal.save(req.body, function (result) {
         if(result.insertId>0){
             res.redirect('/detail/'+req.body.m_id);
