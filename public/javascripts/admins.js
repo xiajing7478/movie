@@ -40,6 +40,34 @@ $(function () {
                 return;
             }
         })
-    }
+    };
 
+
+    /**
+     * add
+     */
+    $("#douban").on('blur', function () {
+        var db_id = $(this).val();//豆瓣的id
+        if(db_id){
+            $.ajax({
+                url:'https://api.douban.com/v2/movie/subject/'+db_id,
+                cache:true,
+                type:'get',
+                dataType:'jsonp',
+                crossDomain:true,
+                jsonp:'callback',
+                success: function (data) {
+                    $('#title').val(data.title);
+                    $('#country').val(data.countries[0]);
+                    $('#language').val();
+                    $('#year').val(data.year);
+                    $('#flash').val();
+                    $('#poster').val(data.images.large);
+                    $('#price').val();
+                    $('#doctor').val(data.directors[0].name);
+                    $('#summary').val(data.summary);
+                }
+            })
+        }
+    })
 })
