@@ -79,17 +79,18 @@ $(function () {
      * 分页
      */
 
-    var str='', nums = $('#totalCounts').val(),page=$("#page").val();
+    var str='',
+        nums = $('#totalCounts').val(),
+        page=$("#page").val(),
+        hide_categoryId = $('#hide_categoryId').val();
 
     for(var i=1; i<= nums; i++){
         if(page == i){
-            str += '<li class="active"><a href="/list?page='+i+'">'+i+'</a></li>';
+            str += '<li class="active"><a href="/list?page='+i+'&categoryId='+hide_categoryId+'">'+i+'</a></li>';
         }else{
-            str += '<li><a href="/list?page='+i+'">'+i+'</a></li>';
+            str += '<li><a href="/list?page='+i+'&categoryId='+hide_categoryId+'">'+i+'</a></li>';
         }
     }
-
-
     $('#pageList').append(str);
 
     //$('#pageTool').Paging({pagesize:10,count:parseInt($('#totalCounts').val()),callback:function(page,size,count){
@@ -113,20 +114,7 @@ $(function () {
      * export
      */
     $('#btn_export').on("click", function () {
-        $(this).attr("disabled",true);
-        $.ajax({
-            url:'/list/exportExcel',
-            type:'POST',
-            dataType:'json',
-            success: function (data) {
-                if(data.code == 200){
-                    console.log("right.........");
-                }
-            },
-            error: function (data) {
-                console.log(JSON.stringify(data));
-            }
-        })
+        window.location.href = '/list/exportExcel';
     });
 
 
@@ -134,7 +122,6 @@ $(function () {
      * 分类搜索
      */
 
-    var hide_categoryId = $('#hide_categoryId').val();
     if(categoryId != ""){
         $("#categorySort option").each(function (index,value) {
             if($(this).val() == hide_categoryId){
