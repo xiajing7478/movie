@@ -1,3 +1,27 @@
+<!--<link href="/stylesheets/paging.css" rel="stylesheet">-->
+<!--<script src="/javascripts/query.js"></script>-->
+<!--<script src="/javascripts/paging.js"></script>-->
+<style type="text/css">
+    #pageTool{float: right;}
+    #pageList{list-style: none;padding: 0;margin: 0; float: left;}
+    #pageList > li{
+        float: left;
+        height: 30px;
+        width: 30px;
+        text-align: center;
+        line-height: 30px;
+        border: 1px solid #c1c1c1;
+    }
+
+    .active{
+        background: #c1c1c1;
+        color: #fff;
+     }
+
+    li+li{
+        margin-left: 8px;
+    }
+</style>
 <div class="row">
     <div class="col-md-12">
         <h3>{{title}}</h3>
@@ -7,6 +31,7 @@
             <thead>
             <tr>
                 <th>编号</th>
+                <th>电影名称</th>
                 <th>国家</th>
                 <th>语言</th>
                 <th>年份</th>
@@ -24,6 +49,7 @@
             {{#each movies}}
                 <tr>
                     <td><a href="./detail/{{id}}">{{id}}</a></td>
+                    <th>{{title}}</th>
                     <td>{{country}}</td>
                     <td>{{language}}</td>
                     <td>{{year}}</td>
@@ -42,6 +68,13 @@
     </div>
     <div class="col-md-2">
         <a href="./admins" class="btn btn-block btn-danger">Add</a>
+    </div>
+    <div class="col-md-offset-3 col-md-7">
+        <input type="hidden" value="{{totalNums counts 10}}" id="totalCounts">
+        <input type="hidden" value="{{page}}" id="page">
+        <div id="pageTool">
+            <ul id="pageList"></ul>
+        </div>
     </div>
 </div>
 <script src="/javascripts/admins.js"></script>

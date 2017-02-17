@@ -72,5 +72,41 @@ $(function () {
                 }
             })
         }
-    })
+    });
+
+
+    /**
+     * 分页
+     */
+
+    var str='', nums = $('#totalCounts').val(),page=$("#page").val();
+
+    for(var i=1; i<= nums; i++){
+        if(page == i){
+            str += '<li class="active"><a href="/list?page='+i+'">'+i+'</a></li>';
+        }else{
+            str += '<li><a href="/list?page='+i+'">'+i+'</a></li>';
+        }
+    }
+
+
+    $('#pageList').append(str);
+
+    //$('#pageTool').Paging({pagesize:10,count:parseInt($('#totalCounts').val()),callback:function(page,size,count){
+    //    $.ajax({
+    //        url:'/list?page='+page,
+    //        type:'get',
+    //        dataType:'json',
+    //        success: function (data) {
+    //            console.log(JSON.stringify(data));
+    //        },
+    //        error: function (data) {
+    //            console.log(JSON.stringify(data));
+    //        }
+    //    })
+    //    //console.log(arguments)
+    //    //alert('当前第 ' +page +'页,每页 '+size+'条,总页数：'+count+'页')
+    //}});
+
+
 })

@@ -2,12 +2,22 @@
  * Created by Administrator on 2017/2/14.
  */
 
+var express = require('express');
 
-
-exports.isLogin = function isLogin(req,res){
+exports.isLogin = function (req,res){
     console.log(req.session.user);
     if((req.session.user)){
         var username = req.session.user.username;
+        return true;
+    }else{
+        return res.redirect("/users");
+    }
+};
+
+exports.isLoginA = function (r){
+    console.log(r);
+    if(r>5){
+        //var username = req.session.user.username;
         return true;
     }else{
         return res.redirect("/users");

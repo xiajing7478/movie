@@ -7,7 +7,7 @@ var dbConn = require('./dbConfig');
 var moment = require('moment');
 function add(obj,callback){
     obj.createTime= obj.updateTime = moment(Date.now()).format('YYYY-MM-DD kk:mm:ss');
-    console.log(JSON.stringify(obj));
+    //console.log(JSON.stringify(obj));
     var sql = 'INSERT INTO movies(title,country,language,year,flash,poster,createTime,updateTime,price,doctor,summary,categoryId) VALUE(?,?,?,?,?,?,?,?,?,?,?,?)';
     dbConn.conn().query(sql,[obj.title,obj.country,obj.language,obj.year,obj.flash,obj.poster,obj.createTime,obj.updateTime,obj.price,obj.doctor,obj.summary,obj.categoryId], function (err, results) {
         if(err){
@@ -18,9 +18,22 @@ function add(obj,callback){
 };
 
 
-function findAll(callback){
-    var sql = 'select m.*,c.name from movies as m LEFT JOIN categorys AS c on c.`id` = m.`categoryId`';
-    dbConn.conn().query(sql, function (err, results) {
+
+function findAllMovies(callback){
+    var sql = 'select m.* from movies as m ';
+    dbConn.conn().query(sql,function (err, results) {
+        if(err){
+            console.log('findAll is err at ' + err);
+        }
+        callback(results);
+    })
+};
+
+function findAll(page,callback){
+    page = (page-1)*10;
+    console.log("page:" + page);
+    var sql = 'select m.*,c.name from movies as m LEFT JOIN categorys AS c on c.`id` = m.`categoryId` limit ?, 10';
+    dbConn.conn().query(sql,[page],function (err, results) {
         if(err){
             console.log('findAll is err at ' + err);
         }
@@ -85,6 +98,16 @@ function deleteById(id,callback){
     })
 };
 
+function totalCount(cb){
+    var sql = 'select count(*) as counts from movies';
+    dbConn.conn().query(sql, function (err, counts) {
+        if(err){
+            console.log('totalCount has err at '+ err);
+        }
+        cb(counts[0].counts);
+    })
+};
+
 
 
 module.exports ={
@@ -94,5 +117,7 @@ module.exports ={
     updateMovie:updateMovie,
     deleteById:deleteById,
     findByCategoryId:findByCategoryId,
-    increaseByPV:increaseByPV
+    increaseByPV:increaseByPV,
+    totalCount:totalCount,
+    findAllMovies:findAllMovies
 } ;

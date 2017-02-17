@@ -3,6 +3,10 @@
  */
 var express = require('express');
 var router = express.Router();
+var multiparty = require('connect-multiparty');
+var fs = require('fs');
+var morgan = require('morgan');
+var path = require('path');
 var dal = require('../database/admins');
 var mid = require('../database/middle');
 var category = require('../database/category');
@@ -45,6 +49,19 @@ router.get('/', function (req, res) {
     }
 
 });
+
+
+router.post('/upload',multiparty(), function (req,res) {
+    var file  = req.files.files;
+    var filename = file.originalFilename;
+
+    var target = '/public/images'+filename;
+
+    fs.createReadStream(file.path)
+        .pipe(fs.createWriteStream(target));
+
+    res.json({code:200,msg: {url: '/images/' + filename}});
+})
 
 
 

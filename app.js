@@ -13,6 +13,8 @@ var list = require('./routes/list');
 var detail = require('./routes/detail');
 var comment = require('./routes/comment');
 var category = require('./routes/category');
+var usersList = require('./routes/usersList');
+var test = require('./routes/test');
 
 var app = express();
 
@@ -51,6 +53,7 @@ app.use('/list',list);
 app.use('/detail',detail);
 app.use('/comment',comment);
 app.use('/category',category);
+app.use('/usersList',usersList);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

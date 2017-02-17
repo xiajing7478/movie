@@ -37,7 +37,7 @@ router.get('/', function(req, res) {
   //  res.render('index', { title: '首页',categorys:categorys});
   //})
 
-  dal.findAll(function (results) {
+  dal.findAllMovies(function (results) {
     //console.log(JSON.stringify(results));
     res.render('index', { title: '首页',movies:results});
   })
