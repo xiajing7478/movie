@@ -109,4 +109,44 @@ $(function () {
     //}});
 
 
+    /**
+     * export
+     */
+    $('#btn_export').on("click", function () {
+        $(this).attr("disabled",true);
+        $.ajax({
+            url:'/list/exportExcel',
+            type:'POST',
+            dataType:'json',
+            success: function (data) {
+                if(data.code == 200){
+                    console.log("right.........");
+                }
+            },
+            error: function (data) {
+                console.log(JSON.stringify(data));
+            }
+        })
+    });
+
+
+    /**
+     * 分类搜索
+     */
+
+    var hide_categoryId = $('#hide_categoryId').val();
+    if(categoryId != ""){
+        $("#categorySort option").each(function (index,value) {
+            if($(this).val() == hide_categoryId){
+                $(this).attr("selected",true);
+                return;
+            }
+        })
+    };
+    $('#categorySort').change(function () {
+        var url =  "/list?categoryId="+$(this).val();
+        window.location = url;
+    })
+
+
 })

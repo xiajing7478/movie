@@ -29,10 +29,12 @@ function findAllMovies(callback){
     })
 };
 
-function findAll(page,callback){
+function findAll(page,categoryId,callback){
     page = (page-1)*10;
-    console.log("page:" + page);
-    var sql = 'select m.*,c.name from movies as m LEFT JOIN categorys AS c on c.`id` = m.`categoryId` limit ?, 10';
+    if(categoryId == 0)
+        var sql = 'select m.*,c.name from movies as m LEFT JOIN categorys AS c on c.`id` = m.`categoryId` ORDER BY m.categoryId limit ?, 10 ';
+    else
+        var sql = 'select m.*,c.name from movies as m LEFT JOIN categorys AS c on c.`id` = m.`categoryId` where m.categoryId ="'+categoryId+'" ORDER BY m.categoryId limit ?, 10 ';
     dbConn.conn().query(sql,[page],function (err, results) {
         if(err){
             console.log('findAll is err at ' + err);
@@ -98,8 +100,11 @@ function deleteById(id,callback){
     })
 };
 
-function totalCount(cb){
-    var sql = 'select count(*) as counts from movies';
+function totalCount(categoryId,cb){
+    if(categoryId == 0)
+        var sql = 'select count(*) as counts from movies';
+    else
+        var sql = 'select count(*) as counts from movies where categoryId="'+categoryId+'"';
     dbConn.conn().query(sql, function (err, counts) {
         if(err){
             console.log('totalCount has err at '+ err);

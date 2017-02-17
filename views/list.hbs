@@ -26,6 +26,21 @@
     <div class="col-md-12">
         <h3>{{title}}</h3>
     </div>
+    <div class="col-md-12" style="padding: 15px 0px;">
+        <div class="col-md-offset-6 col-md-2">
+            <input type="button" id="btn_export" class="btn btn-primary btn-block" value="导出">
+        </div>
+        <div class="col-md-offset-1 col-md-3">
+            <input type="hidden" id="hide_categoryId" value="{{categoryId}}">
+            <select class="form-control" id="categorySort">
+                <option value="0">全部</option>
+                {{#each categorys}}
+                    <option value="{{id}}">{{name}}</option>
+                {{/each}}
+            </select>
+            <!--<input type="text" value="" class="form-control" placeholder="请输入电影名称" is="searchText">-->
+        </div>
+    </div>
     <div class="col-md-12">
         <table class="table table-condensed table-hover table-bordered">
             <thead>
