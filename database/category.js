@@ -1,5 +1,5 @@
 /**
- * Created by Administrator on 2017/2/15.
+ * dal category
  */
 
 var dbConn = require('./dbConfig');

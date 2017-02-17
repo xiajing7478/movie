@@ -1,5 +1,5 @@
 /**
- * Created by Administrator on 2017/2/9.
+ * list logic
  */
 
 var express = require('express');
@@ -7,7 +7,6 @@ var router = express.Router();
 var dal = require('../database/admins');
 var mid = require('../database/middle');
 var category = require('../database/category');
-var fs = require('fs');
 var moment = require('moment');
 var nodeExcel = require('excel-export');
 var hbs = require('hbs');
@@ -15,19 +14,6 @@ var hbs = require('hbs');
 hbs.registerHelper('totalNums', function () {
     return Math.ceil(arguments[0]/arguments[1]);
 });
-//hbs.registerHelper('equal', function (req,res) {
-//
-//    console.log('arguments[0]:' + arguments[0]);
-//    console.log('arguments[1]:' + arguments[1]);
-//    console.log('arguments[1]:' + arguments[2].movies);
-//    //console.log('arguments[1]:' + JSON.stringify(arguments[2]));
-//    if(arguments[0] == arguments[1])
-//        return true;
-//    else
-//        return false;
-//});
-
-
 
 router.get('/', function (req, res) {
     //console.log('page:' + req.query.page);
@@ -68,9 +54,7 @@ router.post('/delete', function (req, res) {
     }
 });
 
-
 router.get('/exportExcel', function (req, res) {
-
     dal.findAllMovies(function (movies) {
         var conf ={},_arr=[],arr=[];
         conf.stylesXmlFile = "styles.xml";
@@ -102,64 +86,7 @@ router.get('/exportExcel', function (req, res) {
         res.setHeader("Content-Disposition", "attachment; filename="+random+".xlsx");
         res.end(result, 'binary');
 
-    })
-
-    console.log('exportExcel ready.....');
-
-
-
-
-
-
-
-    //var conf ={};
-    //conf.stylesXmlFile = "styles.xml";
-    //conf.cols = [{
-    //    caption:'string',
-    //    type:'string',
-    //    beforeCellWrite:function(row, cellData){
-    //        return cellData.toUpperCase();
-    //    },
-    //    width:28.7109375
-    //},{
-    //    caption:'date',
-    //    type:'date',
-    //    beforeCellWrite:function(){
-    //        var originDate = new Date(Date.UTC(1899,11,30));
-    //        return function(row, cellData, eOpt){
-    //            if (eOpt.rowNum%2){
-    //                eOpt.styleIndex = 1;
-    //            }
-    //            else{
-    //                eOpt.styleIndex = 2;
-    //            }
-    //            if (cellData === null){
-    //                eOpt.cellType = 'string';
-    //                return 'N/A';
-    //            } else
-    //                return (cellData - originDate) / (24 * 60 * 60 * 1000);
-    //        }
-    //    }()
-    //},{
-    //    caption:'bool',
-    //    type:'bool'
-    //},{
-    //    caption:'number',
-    //    type:'number'
-    //}];
-    //conf.rows = [
-    //    ['谢谢', new Date(Date.UTC(2013, 4, 1)), true, 3.14],
-    //    ["e", new Date(2012, 4, 1), false, 2.7182],
-    //    ["M&M<>'", new Date(Date.UTC(2013, 6, 9)), false, 1.61803],
-    //    ["null date", null, true, 1.414]
-    //];
-    //
-    //
-    //var random = Math.random().toString().split('.')[1];
-    //var result = nodeExcel.execute(conf);
-    //res.setHeader('Content-Type', 'application/vnd.openxmlformats;charset=utf-8');
-    //res.setHeader("Content-Disposition", "attachment; filename="+random+".xlsx");
-    //res.end(result, 'binary');
+    });
 });
 
 function isLogin(req,res){

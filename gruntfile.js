@@ -2,7 +2,6 @@
  * Created by Administrator on 2017/2/10.
  */
 module.exports = function (grunt) {
-
     grunt.initConfig({
         watch:{
             js:{
@@ -13,7 +12,6 @@ module.exports = function (grunt) {
                 }
             }
         },
-
         nodemon:{
             dev:{
                 options:{
@@ -38,6 +36,4 @@ module.exports = function (grunt) {
 
     grunt.option('force',true);
     grunt.registerTask('default',['concurrent']);
-
-
 }

@@ -1,7 +1,6 @@
 /**
- * Created by Administrator on 2017/2/9.
+ * dal admins
  */
-
 
 var dbConn = require('./dbConfig');
 var moment = require('moment');
@@ -16,8 +15,6 @@ function add(obj,callback){
         callback(results);
     })
 };
-
-
 
 function findAllMovies(callback){
     var sql = 'select m.* from movies as m ';

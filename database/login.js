@@ -1,12 +1,10 @@
 /**
  * Created by Administrator on 2017/2/10.
+ * dal login
  */
-
 
 var dbConn = require('./dbConfig');
 var crypto = require('crypto');
-
-
 
 function getSha(val){
     var shasum = crypto.createHash('sha1');
