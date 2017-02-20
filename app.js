@@ -14,7 +14,6 @@ var detail = require('./routes/detail');
 var comment = require('./routes/comment');
 var category = require('./routes/category');
 var usersList = require('./routes/usersList');
-var test = require('./routes/test');
 
 var app = express();
 
@@ -74,12 +73,19 @@ if (app.get('env') === 'development') {
 
 
   app.use(function(err, req, res, next) {
-    console.log('err.status:' + err.status);
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
+    if(err.status === 404){
+      res.render('404',{
+        message: err.message,
+        error: err
+      })
+    }else{
+      res.status(err.status || 500);
+      res.render('error', {
+        message: err.message,
+        error: err
+      });
+    }
+    //console.log('err.status:' + err.status);
   });
 }
 
